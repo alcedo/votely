@@ -8,3 +8,4 @@ preserve-inputs
 bootstrap
 jquery
 mocha-web
+coffeescript
