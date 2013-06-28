@@ -1,5 +1,6 @@
 {
   "packages": {
-    "mocha-web": {}
+    "mocha-web": {},
+    "router": {}
   }
 }

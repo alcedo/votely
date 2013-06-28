@@ -1,0 +1,40 @@
+<template name="shelfDisplay">
+	<div id = "" class = "row">
+		{{displayShelfTag}}	
+		{{> showShelfItems}}
+		{{> genShortPoll}}
+	</div>
+</template>
+
+<template name = "showShelfItems">
+	{{#each listShelfItems}}
+
+		<div id = "" class = "row">
+			
+			<div class = "span5">
+				<div class = "shelfItem">{{description}}</div>
+			</div>
+			
+			<div class = "span4">
+				<button class="btn btn-primary " type="button">Yes</button>
+				[VoteCount: {{yesCount}}]
+			</div> 
+		</div>
+
+	{{/each}}
+</template>
+
+<template name = "genShortPoll">
+	<h4>Copy > Share > Get Results! </h4> 
+	<div id = "" class = "row">
+		<div class="span12"> 
+			Hi friends, please tap on the URL to cast your vote on the following: 
+			</br>
+			{{#each listShelfItems}}
+				[ {{description}} ]  <a href="{{voteUrl}}{{_id}}">{{voteUrl}}{{_id}}</a>
+				</br>
+			{{/each}}
+
+		</div> 
+	</div>
+</template>

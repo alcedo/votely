@@ -34,6 +34,7 @@ describe 'Basic Database CRUD Operations', ->
 
 			test = Item.Create(itemDescription)
 
+			expect(test).to.have.property('shelfTag')
 			expect(test).to.have.property('description')
 			expect(test).to.have.property('yesCount')
 			expect(test).to.have.property('noCount')
