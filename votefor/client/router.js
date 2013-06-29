@@ -1,6 +1,7 @@
 Meteor.Router.add({
 
-  '/' : 'pollChoices', //default route to pollChoices template
+  //default route to pollChoices template
+  '/' : 'pollChoices', 
 
   '/shelf/:_shelfTag': function(shelfTag) {
 	  Session.set('shelfTag' , shelfTag); 
@@ -8,7 +9,9 @@ Meteor.Router.add({
   },
 
   '/vote/:_itemId' : function (itemId) {
-  	console.log('voted on: ' + itemId);
+	  Session.set('voteItemId', itemId);
+	  Models.AddVoteToItemById(itemId);  //+1 to vote count
+	  return 'voteSuccessDisplay';
   },
 
   '*': 'not_found'

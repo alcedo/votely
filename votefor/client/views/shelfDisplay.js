@@ -1,10 +1,9 @@
-// TEMPLATE: shelfDisplay
+// shelfDisplay Template Helper
 Template.shelfDisplay.displayShelfTag = function () { 
 	return Session.get("shelfTag");
 };
 
-
-// TEMPLATE: showShelfItems
+// showShelfItems Template Helper
 Template.showShelfItems.listShelfItems = function () { 
 	return Models.GetAllShelfItem(Session.get("shelfTag"));
 };
@@ -20,13 +19,14 @@ Template.showShelfItems.events = {
 
 };
 
-// TEMPLATE: genShortPoll 
-Template.genShortPoll.voteUrl = function () { 
-	return MyApp.utility.getHostName() + '/vote/';
-};
+// genShortPoll Template Helpers 
+Template.genShortPoll.helpers({
+  voteUrl: function () {
+  	return MyApp.utility.getHostName() + '/vote/';
+  },
 
-Template.genShortPoll.listShelfItems = function () { 
+  listShelfItems: function () { 
 	return Models.GetAllShelfItem(Session.get("shelfTag"));
-};
+  },
 
-
+});
