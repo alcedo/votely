@@ -1,7 +1,12 @@
 <template name="shelfDisplay">
 	<div id = "" class = "row">
-		{{> showShelfItems}}
-		{{> genShortPoll}}
+		{{#if dbSyncReady}}
+			{{> showShelfItems}}
+			{{> genShortPoll}}
+		{{else}}
+			 <h1>Hang on! Loading...</h1>
+			 <img src="/ajax-loader.gif">
+		{{/if}}
 	</div>
 </template>
 

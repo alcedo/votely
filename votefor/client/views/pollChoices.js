@@ -29,13 +29,3 @@ Template.pollChoices.events = {
 
 	},
 };
-
-
-Meteor.startup(function () {
-
-	Deps.autorun(function () {
-		Meteor.subscribe('getAllItems');
-		Meteor.subscribe('getAllShelfs');
-	});
-
-});
