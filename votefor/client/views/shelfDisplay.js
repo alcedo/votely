@@ -1,8 +1,3 @@
-// shelfDisplay Template Helper
-Template.shelfDisplay.displayShelfTag = function () { 
-	return Session.get("shelfTag");
-};
-
 // showShelfItems Template Helper
 Template.showShelfItems.listShelfItems = function () { 
 	return Models.GetAllShelfItem(Session.get("shelfTag"));
