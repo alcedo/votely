@@ -37,7 +37,7 @@ describe 'Basic Database CRUD Operations', ->
 			expect(test).to.have.property('shelfTag')
 			expect(test).to.have.property('description')
 			expect(test).to.have.property('yesCount')
-			expect(test).to.have.property('noCount')
+			
 			
 			expect(test.description).to.equal(itemDescription)
 

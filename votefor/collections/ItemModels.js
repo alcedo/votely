@@ -18,6 +18,16 @@ Models.RemoveItem = function (shelfTag, description) {
 	myItem.remove(); 
 };
 
+Models.GetItemById = function (id) { 
+	var myItem = new ItemsModelById(id);
+	return	myItem.getOne();
+};
+
+Models.AddVoteToItemById = function (id) { 
+	var myItem = new ItemsModelById(id);
+	return	myItem.addVoteCount();
+};
+
 // Used for debugging purposes ONLY...
 Debug.AllItem = function () { 
 	console.log(Items.find({}).fetch());
@@ -25,6 +35,26 @@ Debug.AllItem = function () {
 
 //////////////////////////////////////
 // These methods aren't exposed. Wrap it in Global Functions to be accessible elsewhere. 
+
+// ItemModels manipulation by individual Item-mongoDB-Id 
+function ItemsModelById (_id) {
+	this.collection = Items; 
+	this.id = _id; 
+}
+
+ItemsModelById.prototype.getOne = function () {
+	return	this.collection.findOne({'_id' : this.id});
+};
+
+ItemsModelById.prototype.addVoteCount = function () {
+	this.collection.update(
+		{'_id': this.id},
+		{$inc: { 'yesCount' : 1 }}
+	);	
+};
+
+
+// ItemModels by shelfTag + Description. 
 function ItemsModel (shelfTag , description) {
 	this.collection =  Items;
 	this.description = description;
@@ -36,8 +66,7 @@ ItemsModel.prototype.create = function() { // Create a new item with 0 votes
 		this.collection.insert({ 
 	    	'shelfTag': this.shelfTag, 
 	    	'description': this.description, 
-	    	'yesCount' : 0,   
- 		    'noCount' : 0		
+	    	'yesCount' : 0  
 	    });
     } else {
     	//throw new Error("Existing itemName: [" + this.description + "] exist within this shelf: "  + this.shelfTag);

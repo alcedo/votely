@@ -10,6 +10,13 @@ Template.showShelfItems.listShelfItems = function () {
 };
 
 Template.showShelfItems.events = {
+	'click .btn' : function (event) {
+		
+		//Figure out which item did the user click on 
+		var itemId = event.currentTarget.getAttribute('itemId');
+		//+1 to vote count for item
+		Models.AddVoteToItemById(itemId);		
+	},
 
 };
 
