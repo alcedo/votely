@@ -10,3 +10,4 @@ jquery
 mocha-web
 coffeescript
 router
+collection-api

@@ -1,3 +1,9 @@
+/*****************************************************************************
+ *
+ * Set database exposed collection and permissions here.  
+ *
+ *****************************************************************************/
+
 // Meteor.publish definitions
 Meteor.publish('getAllShelfs', function(){
     return Shelfs.find({}); // returns everything 

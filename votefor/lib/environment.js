@@ -1,4 +1,9 @@
-// App namespace to attach functions to
+/*****************************************************************************
+ *
+ * Define Global Namespaces and other environment wide settings here  
+ *
+ *****************************************************************************/
+
 MyApp = {};
 Models = {}; 
 Debug = {};

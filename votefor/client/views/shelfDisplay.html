@@ -14,25 +14,32 @@
 	{{#each listShelfItems}}
 
 		<div id = "" class = "row">
-			
+			<div class = "span1">
+				<button class="btn btn-primary " type="button" itemId="{{_id}}">Vote</button>
+			</div> 
+
 			<div class = "span5">
 				<div class = "shelfItem">{{description}}</div>
 			</div>
-			
-			<div class = "span4">
-				<button class="btn btn-primary " type="button" itemId="{{_id}}">Yes</button>
+
+			<div class = "span5">
 				[VoteCount: {{yesCount}}]
-			</div> 
+			</div>
 		</div>
 
 	{{/each}}
 </template>
 
 <template name = "genShortPoll">
-	<h4>Copy > Share > Get Results! </h4> 
+	<div id = "" class = "row">
+		<div class = "span12">
+			</br><h4>Copy and Paste on whatsApp > view results live here!</h4> 
+		</div>
+	</div>
+
 	<div id = "" class = "row">
 		<div class="span12"> 
-			Hi friends, please tap on the URL to cast your vote on the following: 
+			Hi friends, cast your vote by clicking on one of the following URL: 
 			</br>
 			{{#each listShelfItems}}
 				[ {{description}} ]  <a href="{{voteUrl}}{{_id}}">{{voteUrl}}{{_id}}</a>

@@ -1,3 +1,11 @@
+/*****************************************************************************
+ *
+ * Meteor router. Automatically replaces  {{renderPage}} template declaration  
+ * based on the route values. 
+ * Note: router was added as a package via 'mrt add router' cmd
+ *
+ *****************************************************************************/
+
 Meteor.Router.add({
 
   //default route to pollChoices template

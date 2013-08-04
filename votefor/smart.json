@@ -1,6 +1,7 @@
 {
   "packages": {
     "mocha-web": {},
-    "router": {}
+    "router": {},
+    "collection-api": {}
   }
 }
