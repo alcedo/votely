@@ -6,8 +6,9 @@
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    /* collectionApi = new CollectionAPI({ authToken: '97f0ad9e24ca5e0408a269748d7fe0a0' });
-    collectionApi.addCollection(Players, 'players');
-    collectionApi.start(); */ 
+    collectionApi = new CollectionAPI({ authToken: '2tokens' });
+    collectionApi.addCollection(Items, 'items');
+    collectionApi.addCollection(Shelfs, 'shelfs');
+    collectionApi.start();
   });
 }

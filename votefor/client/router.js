@@ -12,14 +12,22 @@ Meteor.Router.add({
   '/' : 'pollChoices', 
 
   '/shelf/:_shelfTag': function(shelfTag) {
-	  Session.set('shelfTag' , shelfTag); 
-	  return 'shelfDisplay'; 
+    Session.set('shelfTag' , shelfTag); 
+    return 'shelfDisplay'; 
   },
 
   '/vote/:_itemId' : function (itemId) {
-	  Session.set('voteItemId', itemId);
-	  Models.AddVoteToItemById(itemId);  //+1 to vote count
-	  return 'voteSuccessDisplay';
+    Session.set('voteItemId', itemId);
+    Models.AddVoteToItemById(itemId);  //+1 to vote count
+    return 'voteSuccessDisplay';
+  },
+
+
+  /***************************************************************************/
+  // Short-Cut for RESTFUL Invokations                                       
+  '/api/createShelf/:_shelfTag/:_itemList' : function (shelfTag , itemList) { 
+    // Simple log to test if it works for now
+    console.log('s: ' + shelfTag + ' i: ' + itemList);
   },
 
   '*': 'not_found'
