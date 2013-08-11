@@ -12,8 +12,8 @@
 			    alert(from+" "+msg+" "+date);
 				  }
 
-				    blackberry.message.sms.isListeningForMessage = true;
-					  blackberry.message.sms.addReceiveListener(listener);
+		blackberry.message.sms.isListeningForMessage = true;
+		blackberry.message.sms.addReceiveListener(listener);
 
 					    if (blackberry.message.sms.removeReceiveListener()){
 							    alert("Listener removed successfully.");
