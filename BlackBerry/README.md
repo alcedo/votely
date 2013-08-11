@@ -1,1 +1,2 @@
-This Port implements the BlackBerry APP that would interact with the back end votely server code.
+This folder implements the BlackBerry WebWorks Environment that would interact with the backend votely server code.
+
