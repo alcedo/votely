@@ -3,10 +3,14 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     version="1.0.0.0" id="HelloWorldApp">   
    
-    <name>helloWorld</name> 
-    <author>My name</author>
+    <name>AppNameIs_HelloWorld</name> 
+    <author>Victor</author>
     <description>The classic first app</description>
     <icon src="images/icon.png"/>
     <content src="index.html"/> 
+
+	<feature id="blackberry.system" />
+	<feature id="blackberry.app" />
+	<feature id="blackberry.invoke" />
 
 </widget>

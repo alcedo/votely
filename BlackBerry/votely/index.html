@@ -1,30 +1,59 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<html>
+	<head>
+		<!-- Lungo CSS -->
+		<link rel="stylesheet" href="vendor/lungo/lungo.css">
+		<link rel="stylesheet" href="vendor/lungo/lungo.icon.css">
+		<link rel="stylesheet" href="vendor/lungo/lungo.theme.css">
+	</head>
+	
+<body>
+<p>
+    <b>blackberry.app</b>
+    <br/>
+    <input type="text" id="textAppName"/>
+    <br>
+    <input type="text" id="textAppVersion"/>
+</p>
+<p>
+    <b>Test invoke API</b>
+    <br/>
+    <input type="button" onclick="window.invoke?window.invoke():
+        alert('WebWorks is not ready yet');" value="Invoke Browser"/>
+    <input type="textarea" id="textbrowser" value="http://www.rim.com"/>
+</p>
 
-	<script type="text/javascript">
-	console.log('haha');
-	alert('test');
-	  blackberry.message.sms.send("hello world", "987654321");
 
-	    var listener = function (msg, from, date) {
-			    alert(from+" "+msg+" "+date);
-				  }
+<script src="local:///chrome/webworks.js" type="text/javascript"></script> 
+<script>
+    function invoke() {
+        blackberry.invoke.invoke({target: "sys.browser", 
+            uri: document.getElementById('textbrowser').value}, 
+            onInvokeSuccess, onInvokeError);
+    }
+    window.addEventListener("load", function(e) {
+        document.addEventListener("webworksready", function(e) {
+       	   $$('#textAppName').val(blackberry.app.name);
+       	   console.log('test: ' + $$('#textAppName').val());
+           document.getElementById('textAppVersion').value = blackberry.app.version;
+           window.invoke = invoke;
+        }, false);
+    }, false);
+    
+    function onInvokeError()
+    {
+        alert("Error");
+    }
+    
+    function onInvokeSuccess()
+    {
+        alert("Success");
+    }
+</script>
 
-		blackberry.message.sms.isListeningForMessage = true;
-		blackberry.message.sms.addReceiveListener(listener);
+	<!-- quo JS Frame work -->
+	<script src="vendor/quojs/quo.debug.js"></script>
+	<!-- lungo JS Frame Work  -->
+	<script src="vendor/lungo/lungo.js"></script>
 
-					    if (blackberry.message.sms.removeReceiveListener()){
-							    alert("Listener removed successfully.");
-								    blackberry.message.sms.isListeningForMessage = false;
-									  }
-									  </script>
-<title>Hello World</title> 
-</head> 
-
-	<body> 
-		<p>Hello World!</p> 
-	</body> 
-
+</body>
 </html>
